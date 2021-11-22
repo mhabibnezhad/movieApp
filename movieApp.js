@@ -1,5 +1,5 @@
 var movieApp = angular.module("myMovieApp", ["ngRoute", "ngAnimate"]);
-movieApp.config(function ($routeProvider, $locationProvider) {
+movieApp.config("$routeProvider","$locationProvider",function ($routeProvider, $locationProvider) {
 	$routeProvider
 		.when("/error", {
 			templateUrl: "error.html",
@@ -49,3 +49,13 @@ movieApp.controller("errorController", function ($scope, $http) {
 	$scope.message2 = "Your username/password is wronge! Please try again."
 
 });
+
+movieApp.run(['$location', '$rootScope', function($location, $rootScope) {
+      $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
+
+          if (current.hasOwnProperty('$$route')) {
+
+              $rootScope.title = current.$$route.title;
+          }
+      });
+}]);
