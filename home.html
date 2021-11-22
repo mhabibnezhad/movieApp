@@ -1,0 +1,88 @@
+            <!DOCTYPE html>
+            <html>
+                <script>
+                    (function(){
+                      var redirect = sessionStorage.redirect;
+                      delete sessionStorage.redirect;
+                      if (redirect && redirect != location.href) {
+                        history.replaceState(null, null, redirect);
+                      }
+                    })();
+                  </script>
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.js"></script>
+            <script src="movieApp.js"></script>
+            <!-- <script src="movieController.js"></script> -->
+
+
+            <body>
+                <h2>Please enter your username and password here:</h2>
+                <div ng-app="myMovieApp" ng-controller="movieController">
+                    <table>
+                        <tr>
+                            <td align="right">Username:</td>
+                            <td align="left"><input type="text" ng-model="username"></td>
+                        </tr>
+                        <tr>
+                            <td align="right">Password:</td>
+                            <td align="left"><input type="password" ng-model="password"></td>
+                        </tr>
+                        <tr>
+                            <td align="left"><button ng-click="check(username,password)">Submit</button></td>
+                        </tr>
+                    </table>
+
+                    <p><a href = "viewMovies.html">View Movies</a></p>
+                    <p><a href = "error.html">Error Page</a></p>
+
+                    <div ng-view></div>
+
+                </div>
+
+                <script>
+            /* var movieApp=angular.module("myMovieApp",["ngRoute"]);
+            movieApp.config(function($routeProvider){
+                $routeProvider
+                .when("/error",{
+                    templateUrl:"error.html",
+                    controller:"movieController"
+                })
+                .when("/viewMovies",{
+                    templateUrl:"viewMovies.html",
+                    controller:"movieController"
+                })
+                .otherwise({
+                    redirectTo:"home.html"
+                });
+            });
+
+
+            movieApp.controller("movieController",function($scope,$http){
+                // do something
+                $scope.username = ""
+                $scope.password = ""
+
+                $scope.check= function(username,password){
+                    username=$scope.username;
+                    password=$scope.password;
+
+                    if (username=="mahmoud" && password=="1234"){
+                        $http.get("movieCollection.json").then(function(response){
+                            $scope.myData=response.data.movieList;
+                        });
+                        $scope.message1="Here are the movies for you:"
+                        $scope.message2="No error"
+                    }
+                    else{
+                        $scope.myData=null
+                        $scope.message1="No movie to show!"
+                        $scope.message2="Your username/password is wronge! Please try again."
+                    }
+
+                    };
+            }); */
+                </script>
+
+            </body>
+            </html>
