@@ -14,8 +14,7 @@ movieApp.config(['$routeProvider', '$locationProvider', function ($routeProvider
 			controller: "movieController"
 		})
 		.otherwise({
-			redirectTo: "index.html",
-			templateUrl: 'index.html'
+			redirectTo: "error.html"
 		});
 	
 }]);
