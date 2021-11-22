@@ -14,11 +14,11 @@ movieApp.config(['$routeProvider', '$locationProvider', function ($routeProvider
 			controller: "movieController"
 		})
 		.otherwise({
-			redirectTo: "index.html",
+			redirectTo: "./index.html",
 			templateUrl: './index.html'
 		});
 	
-});
+}]);
 
 movieApp.controller("movieController", function ($scope, $http) {
 	console.log("movie controller is called");
