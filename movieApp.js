@@ -6,16 +6,16 @@ movieApp.config(['$routeProvider', '$locationProvider', function ($routeProvider
 			controller: "errorController"
 		})
 		.when("/error", {
-			templateUrl: "./error.html",
+			templateUrl: "error.html",
 			controller: "errorController"
 		})
 		.when("/viewMovies", {
-			templateUrl: "./viewMovies.html",
+			templateUrl: "viewMovies.html",
 			controller: "movieController"
 		})
 		.otherwise({
-			redirectTo: "./index.html",
-			templateUrl: './index.html'
+			redirectTo: "index.html",
+			templateUrl: 'index.html'
 		});
 	
 }]);
