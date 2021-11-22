@@ -1,18 +1,5 @@
             <!DOCTYPE html>
             <html>
-                <script>
-                    // the single page app to route accordingly.
-      (function(l) {
-        if (l.search[1] === '/' ) {
-          var decoded = l.search.slice(1).split('&').map(function(s) { 
-            return s.replace(/~and~/g, '&')
-          }).join('?');
-          window.history.replaceState(null, null,
-              l.pathname.slice(0, -1) + decoded + l.hash
-          );
-        }
-      }(window.location)
-                  </script>
             <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
             <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
             <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.js"></script>
@@ -22,7 +9,7 @@
 
             <body>
                 <h2>Please enter your username and password here:</h2>
-                <div ng-app="myMovieApp" ng-controller="movieController">
+                <div ng-app="myMovieApp" >
                     <table>
                         <tr>
                             <td align="right">Username:</td>
@@ -43,50 +30,6 @@
                     <div ng-view></div>
 
                 </div>
-
-                <script>
-            /* var movieApp=angular.module("myMovieApp",["ngRoute"]);
-            movieApp.config(function($routeProvider){
-                $routeProvider
-                .when("/error",{
-                    templateUrl:"error.html",
-                    controller:"movieController"
-                })
-                .when("/viewMovies",{
-                    templateUrl:"viewMovies.html",
-                    controller:"movieController"
-                })
-                .otherwise({
-                    redirectTo:"home.html"
-                });
-            });
-
-
-            movieApp.controller("movieController",function($scope,$http){
-                // do something
-                $scope.username = ""
-                $scope.password = ""
-
-                $scope.check= function(username,password){
-                    username=$scope.username;
-                    password=$scope.password;
-
-                    if (username=="mahmoud" && password=="1234"){
-                        $http.get("movieCollection.json").then(function(response){
-                            $scope.myData=response.data.movieList;
-                        });
-                        $scope.message1="Here are the movies for you:"
-                        $scope.message2="No error"
-                    }
-                    else{
-                        $scope.myData=null
-                        $scope.message1="No movie to show!"
-                        $scope.message2="Your username/password is wronge! Please try again."
-                    }
-
-                    };
-            }); */
-                </script>
 
             </body>
             </html>
