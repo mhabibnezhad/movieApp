@@ -3,7 +3,7 @@ movieApp.config(['$routeProvider', '$locationProvider', function ($routeProvider
 	$routeProvider
 	        .when("/", {
 			templateUrl: "index.html",
-			controller: "errorController"
+			controller: "movieController"
 		})
 		.when("/error", {
 			templateUrl: "error.html",
@@ -14,12 +14,12 @@ movieApp.config(['$routeProvider', '$locationProvider', function ($routeProvider
 			controller: "movieController"
 		})
 		.otherwise({
-			redirectTo: "error.html"
+			redirectTo: "404.html"
 		});
 	
 }]);
 
-movieApp.controller("movieController", function ($scope, $http) {
+movieApp.controller("movieController",["$scope","$http", function ($scope, $http) {
 	console.log("movie controller is called");
 	// do something
 	$scope.username = ""
@@ -44,15 +44,16 @@ movieApp.controller("movieController", function ($scope, $http) {
 		}
 
 	};
-});
+	
+}]);
 
-movieApp.controller("errorController", function ($scope, $http) {
+movieApp.controller("errorController",["$scope","$http",  function ($scope, $http) {
 	console.log("error controller is called");
 	// do something
 	$scope.message1 = "No movie to show!"
 	$scope.message2 = "Your username/password is wronge! Please try again."
 
-});
+}]);
 
 movieApp.run(['$location', '$rootScope', function($location, $rootScope) {
       $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
