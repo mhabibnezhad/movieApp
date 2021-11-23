@@ -2,15 +2,15 @@ var movieApp = angular.module('myMovieApp', ['ngRoute', 'ngAnimate']);
 movieApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
 	$routeProvider
 	        .when("/", {
-			templateUrl: "index.html",
-			controller: "movieController"
+			templateUrl: "home.html",
+			controller: "defaultController"
 		})
 		.when("/error", {
 			templateUrl: "error.html",
 			controller: "errorController"
 		})
 		.when("/viewMovies", {
-			templateUrl: "viewMovies.html",
+			templateUrl: "movies.html",
 			controller: "movieController"
 		})
 		.otherwise({
@@ -52,6 +52,14 @@ movieApp.controller("errorController",["$scope","$http",  function ($scope, $htt
 	// do something
 	$scope.message1 = "No movie to show!"
 	$scope.message2 = "Your username/password is wronge! Please try again."
+
+}]);
+
+movieApp.controller("defaultController",["$scope","$http",  function ($scope, $http) {
+	console.log("home controller");
+	// do something
+	$scope.message1 = "You are home!"
+	$scope.message2 = "You are home again."
 
 }]);
 
