@@ -2,23 +2,24 @@ var movieApp = angular.module('myMovieApp', ['ngRoute', 'ngAnimate']);
 movieApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
 	$routeProvider
 	        .when("/", {
-			templateUrl: "home.html",
+			templateUrl: "./home.html",
 			controller: "defaultController"
 		})
 		.when("/error", {
-			templateUrl: "error.html",
+			templateUrl: "./error.html",
 			controller: "errorController"
 		})
 		.when("/movies", {
-			templateUrl: "movies.html",
+			templateUrl: "./movies.html",
 			controller: "movieController"
 		})
 		.when("/test", {
-			templateUrl: "test.html",
+			templateUrl: "./test.html",
 			controller: "testController"
 		})
 		.otherwise({
-			redirectTo: "404.html"
+			redirectTo: "/404.html",
+			templateUrl: './404.html'
 		});
 	
 }]);
