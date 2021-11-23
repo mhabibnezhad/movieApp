@@ -9,9 +9,13 @@ movieApp.config(['$routeProvider', '$locationProvider', function ($routeProvider
 			templateUrl: "error.html",
 			controller: "errorController"
 		})
-		.when("/viewMovies", {
+		.when("/movies", {
 			templateUrl: "movies.html",
 			controller: "movieController"
+		})
+		.when("/test", {
+			templateUrl: "test.html",
+			controller: "testController"
 		})
 		.otherwise({
 			redirectTo: "404.html"
@@ -60,6 +64,14 @@ movieApp.controller("defaultController",["$scope","$http",  function ($scope, $h
 	// do something
 	$scope.message1 = "You are home!"
 	$scope.message2 = "You are home again."
+
+}]);
+
+movieApp.controller("testController",["$scope","$http",  function ($scope, $http) {
+	console.log("test controller");
+	// do something
+	$scope.message1 = "Test is done!"
+	$scope.message2 = "Test test."
 
 }]);
 
